@@ -11,7 +11,6 @@ namespace MarblePuzzle
         static void Main(string[] args)
         {
             Random rnd = new Random();
-            //List<List<int[]>> moves = new List<List<int[]>>();
             List<int[][]> boards = new List<int[][]>();
 
             boards.Add(new int[1][]);
@@ -62,9 +61,7 @@ namespace MarblePuzzle
 
                         rowNum++;
                     }
-
-                    //Console.WriteLine(possibleMoves);
-
+                    
                     rowNum = 0;
 
                     foreach (int[] row in currentBoard)
@@ -78,17 +75,7 @@ namespace MarblePuzzle
                                 if ((rowNum < 5) && (currentBoard[rowNum + 1][colNum] == 2) && (currentBoard[rowNum + 2][colNum] == 1))
                                 {
                                     int[] coord = new int[] { rowNum, colNum, 2 };
-
-                                    //Boolean doMove = true;
-
-                                    //foreach (List<int[]> move in moves)
-                                    //{
-                                    //    if (move[moveNum].SequenceEqual(coord))
-                                    //    {
-                                    //        doMove = false;
-                                    //    }
-                                    //}
-
+                                    
                                     var randomNum = rnd.NextDouble();
 
                                     if (randomNum <= 1.0/possibleMoves)
@@ -102,17 +89,7 @@ namespace MarblePuzzle
                                 else if ((rowNum > 1) && (currentBoard[rowNum - 1][colNum] == 2) && (currentBoard[rowNum - 2][colNum] == 1))
                                 {
                                     int[] coord = new int[] { rowNum, colNum, 0 };
-
-                                    //Boolean doMove = true;
-
-                                    //foreach (List<int[]> move in moves)
-                                    //{
-                                    //    if (move[moveNum].SequenceEqual(coord))
-                                    //    {
-                                    //        doMove = false;
-                                    //    }
-                                    //}
-
+                                    
                                     var randomNum = rnd.NextDouble();
 
                                     if (randomNum <= 1.0 / possibleMoves)
@@ -126,17 +103,7 @@ namespace MarblePuzzle
                                 else if ((colNum < 5) && (currentBoard[rowNum][colNum + 1] == 2) && (currentBoard[rowNum][colNum + 2] == 1))
                                 {
                                     int[] coord = new int[] { rowNum, colNum, 1 };
-
-                                    //Boolean doMove = true;
-
-                                    //foreach (List<int[]> move in moves)
-                                    //{
-                                    //    if (move[moveNum].SequenceEqual(coord))
-                                    //    {
-                                    //        doMove = false;
-                                    //    }
-                                    //}
-
+                                    
                                     var randomNum = rnd.NextDouble();
 
                                     if (randomNum <= 1.0 / possibleMoves)
@@ -150,17 +117,7 @@ namespace MarblePuzzle
                                 else if ((colNum > 1) && (currentBoard[rowNum][colNum - 1] == 2) && (currentBoard[rowNum][colNum - 2] == 1))
                                 {
                                     int[] coord = new int[] { rowNum, colNum, 3 };
-
-                                    //Boolean doMove = true;
-
-                                    //foreach (List<int[]> move in moves)
-                                    //{
-                                    //    if (move[moveNum].SequenceEqual(coord))
-                                    //    {
-                                    //        doMove = false;
-                                    //    }
-                                    //}
-
+                                    
                                     var randomNum = rnd.NextDouble();
 
                                     if (randomNum <= 1.0 / possibleMoves)
@@ -182,17 +139,7 @@ namespace MarblePuzzle
                     counter++;
                     moveNum++;
                 }
-
-                //if the count of the move is zero then a certain option must always be chosen.
-                //if (currentMove.Count == 0)
-                //{
-
-                //}
-
-                //moves.Add(currentMove);
-
                 
-
                 int ballCount = 0;
 
                 foreach (int[] row in currentBoard)
@@ -205,8 +152,7 @@ namespace MarblePuzzle
                         }
                     }
                 }
-
-                //Console.WriteLine(ballCount);
+                
                 if (ballCount < 3)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -315,29 +261,6 @@ namespace MarblePuzzle
 
                 mainCounter++;
             }
-
-            Console.WriteLine("Solution found!");
-
-            foreach (int[] row in boards[mainCounter])
-            {
-                foreach (int col in row)
-                {
-                    if (col == 0)
-                    {
-                        Console.Write("  ");
-                    }
-                    else
-                    {
-                        Console.Write(col + " ");
-                    }
-                }
-                Console.WriteLine();
-            }
-
-
-            
-
-            Console.Read();
         }
     }
 }
